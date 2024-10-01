@@ -6,10 +6,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Виселица</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header></header>
-    <main></main>
+    <div class="game-modal">
+        <div class="modal-content">
+            <img class="modal-img" src="./img/lost.gif" alt="gif">
+            <h3 class="modal-message">Вы проиграли!</h3>
+            <button class="btn">Сыграть еще раз</button>
+        </div>
+    </div>
+    <div class="modal-rules">
+        <div class="rules-content">
+            <h3 class="modal-message">Правила игры</h3>
+            <p class="modal-text">
+                Игрок должен отгадать слово по буквам. Игроку дается 6 попыток, каждая неудачная попытка пририсовывает деталь к виселице. Каждое слово является именем существительным в именительном падеже единственного числа.
+            </p>
+            <button class="btn">Играть</button>
+        </div>
+    </div>
+    <header class="header">
+        <div class="container">
+            <h1 class="headline">
+                Виселица
+            </h1>
+            <div class="header-btns">
+                <button class="btn">правила</button>
+                <button class="btn">результаты</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="game">
+            <div class="container">
+                <div class="game-wrapper">
+                    <div class="game-img">
+                        <img src="./img/hangman-0.svg" alt="game-img">
+                    </div>
+                    <div class="game-content">
+                        <ul class="word">
+                            <li class="letter">
+                            </li>
+                            <li class="letter guessed">a
+                            </li>
+                            <li class="letter">
+                            </li>
+                            <li class="letter">
+                            </li>
+                            <li class="letter">
+                            </li>
+                            <li class="letter">
+                            </li>
+                            <li class="letter">
+                            </li>
+                            <li class="letter">
+                            </li>
+                            <li class="letter">
+                            </li>
+                        </ul>
+                        <h3 class="game-text">Подсказка:
+                        </h3>
+                        <p class="game-task"> Пептидный гормон и нейропептид, который обычно вырабатывается в гипоталамусе и высвобождается задней долей гипофиза, выделяется в кровь в ответ на сексуальную активность, во время родовой деятельности.</p>
+                        <h3 class="game-text">Попытки:</h3>
+                        <p class="game-score">0 / 6</p>
+                        <div class="keyboard">
+                            <button class="btn-letter">А</button>
+                            <button class="btn-letter">Б</button>
+                            <button class="btn-letter">В</button>
+                            <button class="btn-letter">Г</button>
+                            <button class="btn-letter">Д</button>
+                            <button class="btn-letter">Е</button>
+                            <button class="btn-letter">Ж</button>
+                            <button class="btn-letter">З</button>
+                            <button class="btn-letter">И</button>
+                            <button class="btn-letter">Й</button>
+                            <button class="btn-letter">К</button>
+                            <button class="btn-letter">Л</button>
+                            <button class="btn-letter">М</button>
+                            <button class="btn-letter">Н</button>
+                            <button class="btn-letter">О</button>
+                            <button class="btn-letter">П</button>
+                            <button class="btn-letter">Р</button>
+                            <button class="btn-letter">С</button>
+                            <button class="btn-letter">Т</button>
+                            <button class="btn-letter">У</button>
+                            <button class="btn-letter">Ф</button>
+                            <button class="btn-letter">Х</button>
+                            <button class="btn-letter">Ц</button>
+                            <button class="btn-letter">Ч</button>
+                            <button class="btn-letter">Ш</button>
+                            <button class="btn-letter">Щ</button>
+                            <button class="btn-letter">Ъ</button>
+                            <button class="btn-letter">Ы</button>
+                            <button class="btn-letter">Ь</button>
+                            <button class="btn-letter">Э</button>
+                            <button class="btn-letter">Ю</button>
+                            <button class="btn-letter">Я</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
     <footer>
         <div class="container">
             <div class="footer-copyright">
