@@ -250,7 +250,7 @@ img {
 
 /* modal */
 
-.game-modal {
+.modal-window {
     position: fixed;
     left: 0;
     right: 0;
@@ -262,7 +262,7 @@ img {
     background-color: rgba(0, 0, 0, 0.65);
 }
 
-.game-modal.show {
+.modal-window.show {
     display: flex;
 }
 
@@ -287,6 +287,7 @@ img {
     font-size: 1.6rem;
     font-weight: 600;
     color: red;
+    margin-bottom: 0.8rem;
 }
 
 .btn {
@@ -296,7 +297,7 @@ img {
     height: 3.75rem;
     padding-left: 2.5rem;
     padding-right: 2.5rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
 
     border-radius: 1.875rem;
     border: none;
@@ -316,3 +317,5 @@ img {
 .btn:hover  {
     background-color: #3338bc;
 }
+
+.modal-rules
