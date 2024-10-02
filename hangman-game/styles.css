@@ -246,6 +246,11 @@ img {
     background-color: #3338bc;
 }
 
+.btn-letter:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
 /* footer */
 
 .footer {

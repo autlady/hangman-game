@@ -1,5 +1,6 @@
 const task = document.querySelector(".game-task");
 const wordDisplay = document.querySelector(".word");
+const gameImg = document.querySelector(".img-hangman");
 const keyboardWrapper = document.querySelector(".keyboard");
 const guessesText = document.querySelector(".game-score");
 let currentWord, wrongGuessCount = 0;
@@ -25,8 +26,11 @@ const initGame = (button, clickedLetter) => {
             }
         })
     } else {
+        // если буквы нет в слове, то увеличение счетчика и изменение картинки
         wrongGuessCount++;
+        gameImg.src = `img/hangman-${wrongGuessCount}.svg`;
     }
+    button.disabled = true;
     guessesText.innerText = `${wrongGuessCount} / ${maxGuesesCount}`;
 }
 
