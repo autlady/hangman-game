@@ -315,14 +315,18 @@ img {
     right: 0;
     top: 0;
     bottom: 0;
-    display: none;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.65);
 }
 
 .modal-window.show {
-    display: flex;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .modal-content {

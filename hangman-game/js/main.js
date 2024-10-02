@@ -3,7 +3,12 @@ const wordDisplay = document.querySelector(".word");
 const gameImg = document.querySelector(".img-hangman");
 const keyboardWrapper = document.querySelector(".keyboard");
 const guessesText = document.querySelector(".game-score");
+const finishModal = document.getElementById("finish-modal");
+const finishModalText = document.getElementById("finish-modal-text");
+const modalImg = document.querySelector(".modal-img");
+
 let currentWord, wrongGuessCount = 0;
+let correctLetters = [];
 const maxGuesesCount = 6;
 
 // выбор случайного слова из списка
@@ -21,6 +26,7 @@ const initGame = (button, clickedLetter) => {
         // показать верные буквы в слове
         [...currentWord].forEach((letter, index) => {
             if(letter == clickedLetter) {
+                correctLetters.push(letter);
                 wordDisplay.querySelectorAll(".letter")[index].innerText = letter;
                 wordDisplay.querySelectorAll(".letter")[index].classList.add("guessed");
             }
@@ -32,6 +38,19 @@ const initGame = (button, clickedLetter) => {
     }
     button.disabled = true;
     guessesText.innerText = `${wrongGuessCount} / ${maxGuesesCount}`;
+
+    // заканчиваем игру
+    if(wrongGuessCount === maxGuesesCount) return gameOver(false);
+    if(correctLetters.length === currentWord.length) return gameOver(true);
+}
+
+const gameOver = (isVictory) => {
+    // показываем модальное окно после окончания игры
+    setTimeout(() => {
+        finishModalText.innerText = isVictory ? `Вы победили!` : `Вы проиграли!`;
+        modalImg.src = `img/${isVictory ? 'victory' : 'lost'}.gif`;
+        finishModal.classList.add("show");
+    }, 400);
 }
 
 // создание клавиатуры
