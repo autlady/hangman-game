@@ -6,10 +6,21 @@ const guessesText = document.querySelector(".game-score");
 const finishModal = document.getElementById("finish-modal");
 const finishModalText = document.getElementById("finish-modal-text");
 const modalImg = document.querySelector(".modal-img");
+const btnPlayGame = document.getElementById("play-again");
 
-let currentWord, wrongGuessCount = 0;
-let correctLetters = [];
+let currentWord, wrongGuessCount, correctLetters;
 const maxGuesesCount = 6;
+
+// сброс всех данных
+const resetGame = () => {
+    correctLetters = [];
+    wrongGuessCount = 0;
+    keyboardWrapper.querySelectorAll(".btn-letter").forEach(btn => btn.disabled = false);
+    gameImg.src = `img/hangman-${wrongGuessCount}.svg`;
+    guessesText.innerText = `${wrongGuessCount} / ${maxGuesesCount}`;
+    wordDisplay.innerHTML = currentWord.split("").map(() => `<li class="letter"></li>`).join("");
+    finishModal.classList.remove("show");
+}
 
 // выбор случайного слова из списка
 const getRandomWord = () => {
@@ -17,7 +28,7 @@ const getRandomWord = () => {
     currentWord = word;
     console.log(word);
     task.innerText = hint;
-    wordDisplay.innerHTML = word.split("").map(() => `<li class="letter"></li>`).join("");
+    resetGame();
 }
 
 const initGame = (button, clickedLetter) => {
@@ -64,3 +75,4 @@ for (let i = 1072; i <= 1103; i++) {
 }
 
 getRandomWord();
+btnPlayGame.addEventListener("click", getRandomWord);
