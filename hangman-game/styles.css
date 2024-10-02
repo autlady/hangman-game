@@ -237,6 +237,7 @@ img {
     font-size: 1rem;
     font-weight: 600;
     color: #fff;
+    text-transform: uppercase;
     background-color: #242795;
     border-radius: 0.2rem;
 }
