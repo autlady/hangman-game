@@ -83,6 +83,13 @@ img {
     padding-inline: 40px;
 }
 
+.noscroll {
+    overflow: hidden;
+    touch-action: none;
+    -ms-touch-action: none;
+    height: 100vh;
+  }
+
 /* header */
 
 .header {

@@ -22,7 +22,16 @@
             <p class="modal-text">
                 Игрок должен отгадать слово по буквам. Игроку дается 6 попыток, каждая неудачная попытка пририсовывает деталь к виселице. Каждое слово является именем существительным в именительном падеже единственного числа.
             </p>
-            <button class="btn" id="close-rules">Играть</button>
+            <button class="btn" frame-close>Играть</button>
+        </div>
+    </div>
+    <div class="modal-window" frame-modal="results-modal" id="results-modal">
+        <div class="modal-content">
+            <h3 class="modal-message">Результаты</h3>
+            <p class="modal-text">
+                1
+            </p>
+            <button class="btn" frame-close>Закрыть</button>
         </div>
     </div>
     <header class="header">
@@ -31,8 +40,8 @@
                 Виселица
             </h1>
             <div class="header-btns">
-                <button class="btn">правила</button>
-                <button class="btn">результаты</button>
+                <button class="btn" frame-btn="rules-modal">правила</button>
+                <button class="btn" frame-btn="results-modal">результаты</button>
                 <button class="btn">выбор категории</button>
             </div>
         </div>
@@ -81,6 +90,7 @@
         </div>
     </footer>
     <script src="./js/word-list.js"></script>
+    <script src="./js/modal.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>
