@@ -1,3 +1,6 @@
+const rulesModal = document.getElementById("rules-modal");
+const btnShowRules = document.getElementById("rules-modal");
+const btnCloseRules = document.getElementById("close-rules");
 const task = document.querySelector(".game-task");
 const wordDisplay = document.querySelector(".word");
 const gameImg = document.querySelector(".img-hangman");
