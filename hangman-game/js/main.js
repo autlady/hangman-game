@@ -1,3 +1,9 @@
+window.addEventListener('load', () => {
+    // window.localStorage.clear();
+	// gameResults = JSON.parse(localStorage.getItem('games')) || [];
+    // console.log(gameResults);
+})
+
 const task = document.querySelector(".game-task");
 const wordDisplay = document.querySelector(".word");
 const gameImg = document.querySelector(".img-hangman");
@@ -56,6 +62,24 @@ const initGame = (button, clickedLetter) => {
 }
 
 const gameOver = (isVictory) => {
+
+    //запись данных в localStorage
+    const gameResult = {
+        word: currentWord,
+        score: +wrongGuessCount,
+        victory: isVictory.toString()
+    };
+
+    gameResults = JSON.parse(localStorage.getItem('games')) || [];
+    gameResults.push(gameResult);
+    localStorage.setItem('games', JSON.stringify(gameResults));
+
+    if (window.localStorage.length > 10) {
+        gameResults.splice(0, 1);
+        localStorage.setItem('games', JSON.stringify(gameResults));
+    }
+
+    console.log(gameResults);
     // показываем модальное окно после окончания игры
     setTimeout(() => {
         finishModalText.innerText = isVictory ? `Вы победили!` : `Вы проиграли!`;
@@ -76,3 +100,29 @@ for (let i = 1072; i <= 1103; i++) {
 
 getRandomWord();
 btnPlayGame.addEventListener("click", getRandomWord);
+
+
+// сохранение результата игры в localstorage
+
+// const saveGame = () => {
+//     let gameResult = {
+//         word: currentWord,
+//         score: wrongGuessCount,
+//         victory: isVictory
+//     };
+//     localStorage.setItem('game', JSON.stringify(gameResult));
+// }
+
+// Game.saveFile = function(){
+//     var file = {
+//         score: Game.scene.score,
+//         visits: Game.scene.visits
+//     };
+//     localStorage.setItem('saveFile',JSON.stringify(file));
+// };
+
+// Game.loadFile = function(){
+//     var file = JSON.parse(localStorage.getItem('saveFile'));
+//     Game.scene.score = file.score;
+//     Game.scene.visits = file.visits;
+// };
