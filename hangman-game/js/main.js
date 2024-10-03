@@ -14,6 +14,39 @@ const finishModalText = document.getElementById("finish-modal-text");
 const modalImg = document.querySelector(".modal-img");
 const btnPlayGame = document.getElementById("play-again");
 
+var audioClick = new Audio('sounds/click.mp3');
+var audioWin = new Audio('sounds/win.mp3');
+var audioLoose = new Audio('sounds/loose.mp3');
+const volume = document.querySelector(".btn-sound");
+const volumeIcon = document.querySelector(".img__sound");
+
+//sound button
+
+function soundOn() {
+    volumeIcon.src = 'img/sound.svg'
+    audioClick.muted = false;
+    audioWin.muted = false;
+    audioLoose.muted = false;
+    volume.classList.remove("muted");
+}
+
+function soundOff() {
+    volumeIcon.src = 'img/mute.svg'
+    audioClick.muted = true;
+    audioWin.muted = true;
+    audioLoose.muted = true;
+    volume.classList.add("muted");
+}
+
+volume.addEventListener('click', () => {
+    const isSound = volume.classList.contains("muted");
+    if (isSound) {
+        soundOn();
+    } else {
+        soundOff();
+    }
+})
+
 let currentWord, wrongGuessCount, correctLetters;
 const maxGuesesCount = 6;
 
@@ -82,6 +115,7 @@ const gameOver = (isVictory) => {
     console.log(gameResults);
     // показываем модальное окно после окончания игры
     setTimeout(() => {
+        isVictory ? audioWin.play() : audioLoose.play();
         finishModalText.innerText = isVictory ? `Вы победили!` : `Вы проиграли!`;
         modalImg.src = `img/${isVictory ? 'victory' : 'lost'}.gif`;
         finishModal.classList.add("show");
@@ -94,7 +128,9 @@ for (let i = 1072; i <= 1103; i++) {
     letterBtn.innerText = String.fromCharCode(i);
     letterBtn.classList.add("btn-letter");
     keyboardWrapper.appendChild(letterBtn);
-    letterBtn.addEventListener("click", e => initGame(e.target, String.fromCharCode(i)));
+    letterBtn.addEventListener("click", e => {
+        audioClick.play();
+        initGame(e.target, String.fromCharCode(i))});
 
 }
 

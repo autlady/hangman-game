@@ -103,6 +103,13 @@ img {
     background-color:#e1f5fe;
 }
 
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 4rem;
+}
+
 .headline {
     font-size: 3rem;
     text-align: center;
@@ -112,6 +119,10 @@ img {
     @media (max-width: 830px) {
         font-size: 2rem;
     }
+}
+
+.btn-sound {
+    cursor: pointer;
 }
 
 .header-btns {
