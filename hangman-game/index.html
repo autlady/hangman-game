@@ -51,6 +51,17 @@
                 <button class="btn" frame-btn="rules-modal">правила</button>
                 <button class="btn" frame-btn="results-modal">результаты</button>
                 <button class="btn">выбор категории</button>
+                <div class="dropdown">
+                    <button class="dropdown__button">
+                      <span>Категория</span>
+                    </button>
+                    <ul class="dropdown__list">
+                      <li class="dropdown__list-item" data-value="item1">Медицина</li>
+                      <li class="dropdown__list-item" data-value="item2">JavaScript</li>
+                      <li class="dropdown__list-item" data-value="item3">Аналитика</li>
+                    </ul>
+                    <input class="dropdown__input-hidden" type="text" name="selet-category" value="">
+                </div>
             </div>
         </div>
     </header>
@@ -101,6 +112,7 @@
     </footer>
     <script src="./js/word-list.js"></script>
     <script src="./js/modal.js"></script>
+    <script src="./js/select.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>
