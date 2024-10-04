@@ -2,7 +2,7 @@ window.addEventListener('load', () => {
     // window.localStorage.clear();
 	gameResults = JSON.parse(localStorage.getItem('games')) || [];
     const resultsWrapper = document.querySelector(".results");
-    gameResults.length === 0 ? resultsWrapper.innerHTML = "Пока нет результатов" : gameResults.map((res, index) => {
+    gameResults.length === 0 ? resultsWrapper.innerHTML = "Пока нет результатов" : gameResults.map((res) => {
         resultsWrapper.innerHTML += `<div class="results-item">
         <div class="results-num">${gameResults.indexOf(res) + 1}</div>
         <div class="results-word">${res.word} / категория</div>
