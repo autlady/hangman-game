@@ -124,7 +124,7 @@ const gameOver = (isVictory) => {
         isVictory ? audioWin.play() : audioLoose.play();
         finishModalText.innerText = isVictory ? `Вы победили!` : `Вы проиграли!`;
         modalImg.src = `img/${isVictory ? 'victory' : 'lost'}.gif`;
-        finishModal.classList.add("show");
+        modalImg.onload = () => finishModal.classList.add("show");
     }, 400);
 }
 
