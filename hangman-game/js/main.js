@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-    // window.localStorage.clear();
+    window.localStorage.clear();
 	gameResults = JSON.parse(localStorage.getItem('games')) || [];
     const resultsWrapper = document.querySelector(".results");
     gameResults.length === 0 ? resultsWrapper.innerHTML = "Пока нет результатов" : gameResults.map((res) => {
