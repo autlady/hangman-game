@@ -112,12 +112,10 @@ const gameOver = (isVictory) => {
     };
 
     gameResults = JSON.parse(localStorage.getItem('games')) || [];
-
-    if (gameResults.length > 2) {
-        console.log("больше 2");
-    }
-
     gameResults.push(gameResult);
+    if (gameResults.length > 10) {
+        gameResults.shift();
+    }
     localStorage.setItem('games', JSON.stringify(gameResults));
 
     console.log(gameResults);

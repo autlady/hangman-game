@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function (){
 					item.classList.remove('show');
 					bodyEl.classList.remove('noscroll');
 				}
+
 				e.preventDefault();
 				const itemAttr = item.getAttribute('frame-btn');
 
@@ -46,5 +47,4 @@ document.addEventListener("DOMContentLoaded", function (){
 			});
 		}
 	}
-
 });
