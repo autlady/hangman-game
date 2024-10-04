@@ -1,7 +1,15 @@
 window.addEventListener('load', () => {
     // window.localStorage.clear();
-	// gameResults = JSON.parse(localStorage.getItem('games')) || [];
-    // console.log(gameResults);
+	gameResults = JSON.parse(localStorage.getItem('games')) || [];
+    const resultsWrapper = document.querySelector(".results");
+    gameResults.length === 0 ? resultsWrapper.innerHTML = "Пока нет результатов" : gameResults.map((res, index) => {
+        resultsWrapper.innerHTML += `<div class="results-item">
+        <div class="results-num">${gameResults.indexOf(res) + 1}</div>
+        <div class="results-word">${res.word} / категория</div>
+        <div class="results-steps">${res.score} / 6</div>
+        <img src="./img/results/${res.victory}.png" width="30" alt="${res.victory}">
+    </div>`;
+})
 })
 
 const task = document.querySelector(".game-task");
@@ -20,7 +28,7 @@ var audioLoose = new Audio('sounds/loose.mp3');
 const volume = document.querySelector(".btn-sound");
 const volumeIcon = document.querySelector(".img__sound");
 
-//sound button
+// включение и отключение звука
 
 function soundOn() {
     volumeIcon.src = 'img/sound.svg'
@@ -104,13 +112,13 @@ const gameOver = (isVictory) => {
     };
 
     gameResults = JSON.parse(localStorage.getItem('games')) || [];
+
+    if (gameResults.length > 2) {
+        console.log("больше 2");
+    }
+
     gameResults.push(gameResult);
     localStorage.setItem('games', JSON.stringify(gameResults));
-
-    if (window.localStorage.length > 10) {
-        gameResults.splice(0, 1);
-        localStorage.setItem('games', JSON.stringify(gameResults));
-    }
 
     console.log(gameResults);
     // показываем модальное окно после окончания игры
