@@ -1,17 +1,3 @@
-window.addEventListener('load', () => {
-    window.localStorage.clear();
-	gameResults = JSON.parse(localStorage.getItem('games')) || [];
-    const resultsWrapper = document.querySelector(".results");
-    gameResults.length === 0 ? resultsWrapper.innerHTML = "Пока нет результатов" : gameResults.map((res) => {
-        resultsWrapper.innerHTML += `<div class="results-item">
-        <div class="results-num">${gameResults.indexOf(res) + 1}</div>
-        <div class="results-word">${res.word} / категория</div>
-        <div class="results-steps">${res.score} / 6</div>
-        <img src="./img/results/${res.victory}.png" width="30" alt="${res.victory}">
-    </div>`;
-})
-})
-
 const task = document.querySelector(".game-task");
 const wordDisplay = document.querySelector(".word");
 const gameImg = document.querySelector(".img-hangman");
@@ -71,7 +57,7 @@ const resetGame = () => {
 
 // выбор случайного слова из списка
 const getRandomWord = () => {
-    const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
+    const { word, hint } = wordListMed[Math.floor(Math.random() * wordListMed.length)];
     currentWord = word;
     console.log(word);
     task.innerText = hint;
