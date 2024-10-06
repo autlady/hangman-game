@@ -7,7 +7,7 @@ class ResultsHTML {
 		gameResults.length === 0 ? resultsWrapper.innerHTML = "Пока нет результатов" : gameResults.map((res) => {
 			resultsWrapper.innerHTML += `<div class="results-item">
         <div class="results-num">${gameResults.indexOf(res) + 1}</div>
-        <div class="results-word">${res.word} / категория</div>
+        <div class="results-word">${res.word} / ${res.category}</div>
         <div class="results-steps">${res.score} / 6</div>
         <img src="./img/results/${res.victory}.png" width="30" alt="${res.victory}">
     </div>`;

@@ -42,6 +42,7 @@ volume.addEventListener('click', () => {
 })
 
 let currentWord, wrongGuessCount, correctLetters;
+let currentCategory;
 const maxGuesesCount = 6;
 
 // сброс всех данных
@@ -56,9 +57,13 @@ const resetGame = () => {
 }
 
 // выбор случайного слова из списка
-const getRandomWord = () => {
-    const { word, hint } = wordListMed[Math.floor(Math.random() * wordListMed.length)];
+const getRandomWord = (event = { target: { value :  "Медицина"}}) => {
+    console.log(event.target.value);
+    const { word, hint } = event.target.value === 'Медицина' ? wordListMed[Math.floor(Math.random() * wordListMed.length)] : 
+    wordListJS[Math.floor(Math.random() * wordListJS.length)];
+
     currentWord = word;
+    currentCategory = event.target.value;
     console.log(word);
     task.innerText = hint;
     resetGame();
@@ -94,11 +99,13 @@ const gameOver = (isVictory) => {
     const gameResult = {
         word: currentWord,
         score: +wrongGuessCount,
-        victory: isVictory.toString()
+        victory: isVictory.toString(),
+        category: currentCategory
     };
 
     gameResults = JSON.parse(localStorage.getItem('games')) || [];
     gameResults.push(gameResult);
+
     if (gameResults.length > 10) {
         gameResults.shift();
     }
@@ -127,30 +134,7 @@ for (let i = 1072; i <= 1103; i++) {
 }
 
 getRandomWord();
-btnPlayGame.addEventListener("click", getRandomWord);
 
+dropDownInput.addEventListener('change', getRandomWord);
 
-// сохранение результата игры в localstorage
-
-// const saveGame = () => {
-//     let gameResult = {
-//         word: currentWord,
-//         score: wrongGuessCount,
-//         victory: isVictory
-//     };
-//     localStorage.setItem('game', JSON.stringify(gameResult));
-// }
-
-// Game.saveFile = function(){
-//     var file = {
-//         score: Game.scene.score,
-//         visits: Game.scene.visits
-//     };
-//     localStorage.setItem('saveFile',JSON.stringify(file));
-// };
-
-// Game.loadFile = function(){
-//     var file = JSON.parse(localStorage.getItem('saveFile'));
-//     Game.scene.score = file.score;
-//     Game.scene.visits = file.visits;
-// };
+btnPlayGame.addEventListener("click", () => dropDownInput.dispatchEvent(new Event('change')));

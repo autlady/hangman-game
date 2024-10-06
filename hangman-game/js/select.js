@@ -32,6 +32,8 @@ dropDownListItems.forEach(function (listItem) {
         dropDownInput.value = this.dataset.value;
         dropDownList.classList.remove('dropdown__list--visible');
         dropDownBtn.classList.remove('dropdown__button--active');
+
+        dropDownInput.dispatchEvent(new Event('change'));
     })
 })
 
