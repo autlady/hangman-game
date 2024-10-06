@@ -59,7 +59,7 @@ const resetGame = () => {
 // выбор случайного слова из списка
 const getRandomWord = (event = { target: { value :  "Медицина"}}) => {
     console.log(event.target.value);
-    const { word, hint } = event.target.value === 'Медицина' ? wordListMed[Math.floor(Math.random() * wordListMed.length)] : 
+    const { word, hint } = event.target.value === 'Медицина' ? wordListMed[Math.floor(Math.random() * wordListMed.length)] :
     wordListJS[Math.floor(Math.random() * wordListJS.length)];
 
     currentWord = word;
@@ -103,7 +103,7 @@ const gameOver = (isVictory) => {
         category: currentCategory
     };
 
-    gameResults = JSON.parse(localStorage.getItem('games')) || [];
+    let gameResults = JSON.parse(localStorage.getItem('games')) || [];
     gameResults.push(gameResult);
 
     if (gameResults.length > 10) {
