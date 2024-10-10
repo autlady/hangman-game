@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Виселица</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- finish game modal -->
+    <div class="modal-window" id="finish-modal">
+        <div class="modal-content">
+            <img class="modal-img" src="./img/lost.gif" alt="gif">
+            <h3 class="modal-message" id="finish-modal-text">Вы проиграли!</h3>
+            <button class="btn" id="play-again">Сыграть еще раз</button>
+        </div>
+    </div>
+    <!-- rules modal -->
+    <div class="modal-window" frame-modal="rules-modal" id="rules-modal">
+        <div class="modal-content">
+            <h3 class="modal-message">Правила игры</h3>
+            <p class="modal-text">
+                Игрок должен отгадать слово по буквам. Игроку дается 6 попыток, каждая неудачная попытка пририсовывает деталь к виселице. Каждое слово является именем существительным в именительном падеже единственного числа.
+            </p>
+            <button class="btn" frame-close>Играть</button>
+        </div>
+    </div>
+    <!-- results modal -->
+    <div class="modal-window results-modal" frame-modal="results-modal" id="results-modal">
+        <div class="modal-content">
+            <h3 class="modal-message">Результаты</h3>
+            <div class="results">
+            </div>
+            <button class="btn" frame-close>Закрыть</button>
+        </div>
+    </div>
+    <!-- header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <h1 class="headline">
+                    Виселица
+                </h1>
+                <div class="btn-sound">
+                    <img class="img__sound" src="./img/sound.svg" width="30" alt="sound">
+                </div>
+            </div>
+            <div class="header-btns">
+                <button class="btn" frame-btn="rules-modal">правила</button>
+                <button class="btn" frame-btn="results-modal">результаты</button>
+                <div class="dropdown">
+                    <button class="dropdown__button">Медицина</button>
+                    <ul class="dropdown__list">
+                      <li class="dropdown__list-item" data-value="Медицина">Медицина</li>
+                      <li class="dropdown__list-item" data-value="JavaScript">JavaScript</li>
+                    </ul>
+                    <input class="dropdown__input-hidden" type="text" name="selet-category" value="Медицина">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- section game -->
+        <section class="game">
+            <div class="container">
+                <div class="game-wrapper">
+                    <div class="game-column">
+                        <div class="game-img">
+                            <img class="img-hangman" src="./img/hangman-0.svg" alt="game-img">
+                        </div>
+                        <ul class="word">
+                        </ul>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-text">Подсказка:
+                        </h3>
+                        <p class="game-task"> Пептидный гормон и нейропептид, который обычно вырабатывается в гипоталамусе и высвобождается задней долей гипофиза, выделяется в кровь в ответ на сексуальную активность, во время родовой деятельности.</p>
+                        <h3 class="game-text">Попытки:
+                            <span class="game-score">0 / 6</span>
+                        </h3>
+                        <div class="keyboard">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-copyright">
+                <div class="footer-social">
+                    <a href="https://github.com/autlady" target="_blank">
+                        <svg class="svg-git">
+                            <use href="./img/svgSprite.svg#svg-git"></use>
+                        </svg>
+                    </a>
+                </div>
+                <p class="copyright">&copy; 2024 Юлия Григорьева</p>
+                <div class="footer-logo">
+                    <a href="https://rs.school/courses/javascript-ru" target="_blank">
+                        <img src="./img/logo.png" alt="rsschool logo"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/word-list-med.js"></script>
+    <script src="./js/word-list-js.js"></script>
+    <script src="./js/modal.js"></script>
+    <script src="./js/select.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
